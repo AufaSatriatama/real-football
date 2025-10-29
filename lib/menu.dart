@@ -37,7 +37,7 @@ class MyHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InfoCard(title: 'NPM', content: npm),
-                InfoCard(title: 'Name', content: nama),
+                InfoCard(title: 'Name', content: nama), // di sini card
                 InfoCard(title: 'Class', content: kelas),
               ],
             ),
@@ -55,7 +55,7 @@ class MyHomePage extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(top: 16.0),
                     child: Text(
-                      'Selamat datang di Football News',
+                      'Selamat datang di Real Football',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
@@ -88,9 +88,9 @@ class MyHomePage extends StatelessWidget {
   }
 
  final List<ItemHomepage> items = [
-    ItemHomepage("See Football News", Icons.newspaper),
-    ItemHomepage("Add News", Icons.add),
-    ItemHomepage("Logout", Icons.logout),
+    ItemHomepage("All Products", Icons.newspaper, Colors.blue),
+    ItemHomepage("My Products", Icons.list, Colors.green),
+    ItemHomepage("Create Product", Icons.add, Colors.red),
   ];
 }
 
@@ -116,7 +116,7 @@ class InfoCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold), 
             ),
             const SizedBox(height: 8.0),
             Text(content),
@@ -130,8 +130,9 @@ class InfoCard extends StatelessWidget {
 class ItemHomepage {
  final String name;
  final IconData icon;
+ final Color color;
 
- ItemHomepage(this.name, this.icon);
+ ItemHomepage(this.name, this.icon, this.color);
 }
 
 class ItemCard extends StatelessWidget {
@@ -162,6 +163,7 @@ class ItemCard extends StatelessWidget {
         // Container untuk menyimpan Icon dan Text
         child: Container(
           padding: const EdgeInsets.all(8),
+          color: item.color,
           child: Center(
             child: Column(
               // Menyusun ikon dan teks di tengah kartu.
