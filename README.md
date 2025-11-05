@@ -32,3 +32,28 @@
 ## 6
 
 ### Hot-reload merupakan konsep di mana perubahan pada suatu kode langsung diterapkan pada aplikasi yang sedang berjalan tanpa perlu memulai ulang aplikasi tersebut. Sedangkan, hot-restart adalah proses di mana aplikasi dimulai ulang dari awal. Perbedaannya adalah hot-reload hanya memperbarui bagian tertentu dari kode, sedangkan hot-restart memulai ulang seluruh aplikasi.
+
+# Catatan Tugas 8
+
+## 1. 
+
+### Navigator.push: digunakan untuk menavigasi ke halaman baru dengan menambahkan halaman baru ke tumpukan navigasi. Kalau Navigator.pushReplacement: digunakan untuk menavigasi ke halaman baru dengan menggantikan halaman saat ini di tumpukan navigasi. Kuncinya ada di 'mengganti' dan 'menambahkan'
+
+## 2.
+
+### Kita dapat memanfaatkan hirarki widget dengan menempatkan widget yang ingin kita akses di atas widget yang membutuhkan akses tersebut. Misalnya, jika kita ingin mengakses data dari widget A di widget B, kita bisa menempatkan widget A sebagai parent dari widget B. Dengan begitu, widget B dapat mengakses data dari widget A melalui BuildContext.
+
+## 3.
+
+### Kelebihan menggunakan Padding: 
+- Memberikan ruang di sekitar widget, sehingga tampilan menjadi lebih rapi dan teratur.
+- Mencegah widget saling bertumpukan atau terlalu berdekatan yang dapat mengganggu pengalaman pengguna.
+- Memudahkan dalam mengatur layout dan posisi widget dalam tampilan.
+
+### Kelebihan menggunakan SingleChildScrollView:
+- Memungkinkan konten yang melebihi batas layar untuk di-scroll, sehingga semua konten dapat diakses oleh pengguna.
+- Mudah digunakan untuk membuat tampilan yang responsif, terutama pada perangkat dengan ukuran layar yang berbeda-beda
+
+## 4.
+
+### Kita bisa menggunakan warna hijau karena sesuai dengan branding sebagai toko yang menjual jersey sepak bola
