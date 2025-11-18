@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:real_football/models/product_entry.dart';
 
+// Helper to format integer price with thousand separators (e.g. 150000 -> 150.000)
+String _formatPrice(int price) {
+  final s = price.toString();
+  // Insert dot as thousand separator
+  final reg = RegExp(r"\B(?=(\d{3})+(?!\d))");
+  return s.replaceAllMapped(reg, (match) => '.');
+}
+
 class ProductEntryCard extends StatelessWidget {
   final ProductEntry product;
   final VoidCallback onTap;
@@ -56,8 +64,23 @@ class ProductEntryCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
 
-                // Category
-                Text('Category: ${product.category}'),
+                // Category and Price
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text('Category: ${product.category}'),
+                    ),
+                    Text(
+                      'Rp ${_formatPrice(product.price)}',
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 199, 60, 60),
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 6),
 
                 // Content preview
@@ -71,15 +94,22 @@ class ProductEntryCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
 
+
                 // Featured indicator
                 if (product.isFeatured)
-                  const Text(
-                    'Featured',
-                    style: TextStyle(
-                      color: Colors.amber,
-                      fontWeight: FontWeight.bold
-                    ),
+                  Row(
+                    children: [
+                      const Text(
+                        'Featured',
+                        style: TextStyle(
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                    ],
                   ),
+                
               ],
             ),
           ),

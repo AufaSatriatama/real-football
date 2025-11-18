@@ -57,3 +57,11 @@
 ## 4.
 
 ### Kita bisa menggunakan warna hijau karena sesuai dengan branding sebagai toko yang menjual jersey sepak bola
+
+# Catatan Tugas 9
+
+## 1
+
+###  Jelaskan mengapa kita perlu membuat model Dart saat mengambil/mengirim data JSON? Apa konsekuensinya jika langsung memetakan Map<String, dynamic> tanpa model (terkait validasi tipe, null-safety, maintainability)?
+
+### Kita perlu membuat model dart saat mengambil atau mengirim data JSON karena de

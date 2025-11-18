@@ -6,24 +6,23 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:real_football/widgets/left_drawer.dart';
 import 'package:real_football/screens/product_detail.dart';
 import 'package:real_football/widgets/product_entry_card.dart';
-import 'my_products_list.dart';
 
 
-class ProductEntryList extends StatefulWidget {
-  const ProductEntryList({super.key});
+class MyProductEntryList extends StatefulWidget {
+  const MyProductEntryList({super.key});
 
   @override
-  State<ProductEntryList> createState() => _ProductEntryListState();
+  State<MyProductEntryList> createState() => _MyProductEntryListState();
 }
 
-class _ProductEntryListState extends State<ProductEntryList> {
+class _MyProductEntryListState extends State<MyProductEntryList> {
   Future<List<ProductEntry>> fetchProducts(CookieRequest request) async {
     // TODO: Replace the URL with your app's URL and don't forget to add a trailing slash (/)!
     // To connect Android emulator with Django on localhost, use URL http://10.0.2.2/
     // If you using chrome,  use URL http://localhost:8000
-    
-    final response = await request.get('http://localhost:8000/json/');
-    
+
+    final response = await request.get('http://localhost:8000/json/my-products/');
+
     // Decode response to json format
     var data = response;
 
@@ -42,33 +41,10 @@ class _ProductEntryListState extends State<ProductEntryList> {
     final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Product Entry List'),
+        title: const Text('My Product Entry List'),
       ),
-
-      floatingActionButton: FloatingActionButton(onPressed: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const MyProductEntryList()
-                  ),
-              );
-      },
-      backgroundColor: Colors.white,
-      child: Text(
-        "My Products",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 12,
-          color: Colors.indigo
-        ),
-      ),
-      
-      ),
-
-      
       drawer: const LeftDrawer(),
       body: FutureBuilder(
-
         future: fetchProducts(request),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {

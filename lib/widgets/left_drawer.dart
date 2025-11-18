@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_football/screens/menu.dart';
 import 'package:real_football/screens/itemlist_form.dart';
+import 'package:real_football/screens/product_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -13,7 +14,7 @@ class LeftDrawer extends StatelessWidget {
           const DrawerHeader(
 
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.green,
             ),
             child: Column(
               children: [
@@ -27,7 +28,7 @@ class LeftDrawer extends StatelessWidget {
                   ),
                 ),
                 Padding(padding: EdgeInsets.all(10)),
-                Text("Seluruh berita sepak bola terkini di sini!",
+                Text("Seluruh Produk sepak bola terkini di sini!",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 15,
@@ -47,7 +48,7 @@ class LeftDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyHomePage(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)),
+                    builder: (context) => MyHomePage(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)),
                   ));
             },
           ),
@@ -63,6 +64,18 @@ class LeftDrawer extends StatelessWidget {
                     builder: (context) => ItemFormPage(),
                   ));
             },
+          ),
+
+          ListTile(
+              leading: const Icon(Icons.add_reaction_rounded),
+              title: const Text('Products List'),
+              onTap: () {
+                  // Route to products list page
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ProductEntryList()),
+                  );
+              },
           ),
         ],
       ),
